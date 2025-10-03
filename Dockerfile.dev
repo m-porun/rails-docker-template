@@ -22,6 +22,8 @@ WORKDIR /myapp
 
 # Bundlerのインストール
 RUN gem install bundler
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
 
 # アプリケーションのコードをコピー
 COPY . /myapp
